@@ -114,7 +114,7 @@ def blueprint(canal):
             "module": "datastore:GetRecord",
             "version": 1,
             "parameters": {"datastore": c["historial"]},
-            "mapper": {"key": c["de"]},
+            "mapper": {"key": c["de"], "returnWrapped": False},
             "metadata": {"designer": {"name": "Leer historial"}},
             "filter": {"name": "Mensaje de texto", "conditions": [[hay_mensaje, c["es_texto"]]]},
         },
@@ -123,7 +123,7 @@ def blueprint(canal):
             "module": "datastore:GetRecord",
             "version": 1,
             "parameters": {"datastore": DS_CONFIGURACION},
-            "mapper": {"key": "system_prompt"},
+            "mapper": {"key": "system_prompt", "returnWrapped": False},
             "metadata": {"designer": {"name": "Leer prompt del bot"}},
         },
         {

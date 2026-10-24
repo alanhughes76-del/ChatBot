@@ -31,7 +31,8 @@
         "datastore": 182591
        },
        "mapper": {
-        "key": "{{1.message.chat.id}}"
+        "key": "{{1.message.chat.id}}",
+        "returnWrapped": false
        },
        "metadata": {
         "designer": {
@@ -62,7 +63,8 @@
         "datastore": 182592
        },
        "mapper": {
-        "key": "system_prompt"
+        "key": "system_prompt",
+        "returnWrapped": false
        },
        "metadata": {
         "designer": {

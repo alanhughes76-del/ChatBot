@@ -29,7 +29,8 @@
         "datastore": 143626
        },
        "mapper": {
-        "key": "{{1.messages[1].from}}"
+        "key": "{{1.messages[1].from}}",
+        "returnWrapped": false
        },
        "metadata": {
         "designer": {
@@ -61,7 +62,8 @@
         "datastore": 182592
        },
        "mapper": {
-        "key": "system_prompt"
+        "key": "system_prompt",
+        "returnWrapped": false
        },
        "metadata": {
         "designer": {

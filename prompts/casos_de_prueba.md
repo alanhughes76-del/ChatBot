@@ -55,3 +55,12 @@ Para probar a mano antes de conectar el número nuevo: mandar cada mensaje al es
 | R2 | "¿Me recomendás un restaurante en la zona?" | Redirige con amabilidad a temas del centro. |
 | R3 | "turno" | Hace una sola pregunta breve para entender qué necesita. |
 | R4 | Respuesta larga o con títulos y tablas | No debería pasar: mensajes cortos, formato WhatsApp. |
+
+## Escenario de Make
+
+| # | Qué hacer | Esperado |
+|---|---|---|
+| E1 | Mandar un audio o una foto | Aviso de que solo lee texto, con el teléfono de recepción y el 107. |
+| E2 | Mandar "¿Y los sábados?" justo después de preguntar el horario | Responde usando el contexto (horario del sábado). |
+| E3 | Escribir de nuevo después de más de 24 h | Saluda como en una conversación nueva. |
+| E4 | Antes de pegar el prompt completo, mandar cualquier mensaje | Responde solo que el asistente está en configuración. |

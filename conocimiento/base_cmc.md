@@ -1,8 +1,8 @@
-# Base de conocimiento de CMCardales
+# Base de conocimiento de CMCardales — PRELIMINAR
 
 > Generada a partir de documentos internos: "Resumen médicos y O.S. que atienden" (04/2026), "Arancel particular consultas médicas" (05/2026) y "Arancel particular de prestaciones diferentes" (05/2026).
 > **No incluye datos internos** (CUIT, celulares, emails, alias bancarios, porcentajes de alquiler, por dónde se factura ni credenciales).
-> Los valores son los vigentes a mayo de 2026. Los marcados como (VALOR DE PRUEBA) son provisorios y deben reemplazarse por los reales antes de salir a producción.
+> Los valores son los vigentes a mayo de 2026. Los marcados como (VALOR DE PRUEBA), (DATO DE PRUEBA), (DÍAS DE PRUEBA) o (LINK DE PRUEBA) son provisorios y deben reemplazarse por los reales antes de salir a producción.
 
 ## Reglas para usar esta información
 - Los aranceles pueden cambiar: cada vez que informes un valor, aclará que es el vigente y que conviene confirmarlo en recepción.
@@ -14,12 +14,14 @@
 ## Profesionales
 
 ### Dr. Alan Hughes — Pediatría
+- Días: Lunes, miércoles y viernes (DÍAS DE PRUEBA)
 - Turnos: Dr. App
 - Consulta particular: $37.000
 - Consulta afiliados PAMI: $27.000
 - Obras sociales y prepagas: ACA Salud, Accord Salud, AMEBPBA (Banco Provincia), APSOT – FSST, Austral Salud, CASA, Centro Médico Pueyrredón, CIMA, COMEI, Ensalud – OSPIM, Galeno, Hope (William Hope), Hospital Alemán, IOMA, Jerárquicos Salud, La Segunda ART, Medicus, Medifé, Omint / CS Salud, OSDE, OSDIPP, OSDOPP, OSECAC, OSETYA, OSFATLYF (Luz y Fuerza), OSMATA, OSPE, OSPEDYC, OSPIA, OSPRERA, OSPTV – TV Salud, Personal de Escribanía, Poder Judicial, Prevención Salud, Qualitas, Sancor Salud, Swiss Medical, Unión Personal, Vía Sano Salud (con copago).
 
 ### Dra. Marina Fernanda Luna — Pediatría
+- Días: Martes y jueves (DÍAS DE PRUEBA)
 - Turnos: Dr. App
 - Consulta particular: $37.000
 - Consulta afiliados PAMI: $27.000
@@ -27,6 +29,7 @@
 - No prestador (arancel diferenciado): IOMA.
 
 ### Dr. Héctor Nanni — Pediatría y Clínica médica
+- Días: Lunes a viernes por la mañana (DÍAS DE PRUEBA)
 - Turnos: Dr. App
 - Consulta particular: $45.000
 - Consulta afiliados PAMI: $30.000
@@ -34,6 +37,7 @@
 
 ### Dra. María Anabel Tilli — Gastroenterología infantil
 - Edades: Desde recién nacidos hasta 14 años
+- Días: Miércoles (DÍAS DE PRUEBA)
 - Turnos: Dr. App
 - Consulta particular: $37.000
 - Consulta afiliados PAMI: $27.000
@@ -50,12 +54,14 @@
 
 ### Dr. Andrés Díaz Lucero — Psiquiatría infantil y Neurología infantil
 - Edades: De 2-3 años hasta 18 años
+- Días: Jueves (DÍAS DE PRUEBA)
 - Turnos: Dr. App
 - Consulta particular: $80.000 en efectivo / $90.000 por transferencia o con factura
 - Consulta afiliados PAMI: igual que particular
 - Obras sociales: Solo particular.
 
 ### Ps. Rodrigo Luraschi — Estimulación temprana
+- Días: Martes (DÍAS DE PRUEBA)
 - Turnos: directo con el profesional (pedir el contacto en recepción)
 - Consulta particular: $25.000 por sesión
 - Obras sociales: Solo particular.
@@ -74,6 +80,7 @@
 - Obras sociales: Solo particular.
 
 ### Dr. Quirino Acha — Clínica médica
+- Días: Lunes (DÍAS DE PRUEBA)
 - Turnos: Dr. App
 - Consulta particular: $37.000
 - Consulta afiliados PAMI: $27.000
@@ -81,6 +88,7 @@
 - No prestador (arancel diferenciado): Accord Salud, Galeno, IOMA, Unión Personal.
 
 ### Dr. Horacio Alejandro Errazu — Clínica médica — Médico de cabecera PAMI
+- Días: Martes y jueves (DÍAS DE PRUEBA)
 - Turnos: Dr. App
 - Consulta particular: $37.000
 - Consulta afiliados PAMI: atiende PAMI como médico de cabecera
@@ -88,6 +96,7 @@
 
 ### Dr. Martín Diana Menéndez — Clínica médica
 - Edades: Mayores de 16 años
+- Días: Miércoles (DÍAS DE PRUEBA)
 - Turnos: Dr. App
 - Consulta particular: $37.000
 - Consulta afiliados PAMI: $27.000
@@ -103,12 +112,14 @@
 - No prestador (arancel diferenciado): Accord Salud, Galeno, IOMA, OSECAC, Unión Personal.
 
 ### Dra. Mercedes Nano — Infectología y Clínica médica (también Sexología)
+- Días: 1.er y 3.er miércoles de cada mes (DÍAS DE PRUEBA)
 - Turnos: Dr. App
 - Consulta particular: $37.000 (Infectología) / $49.000 (Sexología)
 - Consulta afiliados PAMI: $27.000 (Infectología) / $49.000 (Sexología)
 - Obras sociales y prepagas: ACA Salud, Accord Salud, AMEBPBA (Banco Provincia), APSOT – FSST, CASA, Centro Médico Pueyrredón, CIMA, COMEI, Ensalud – OSPIM, Galeno, Hope (William Hope), Hospital Alemán, IOMA, Jerárquicos Salud, La Segunda ART, Medicus, Medifé, Omint / CS Salud, OSDE, OSDIPP, OSDOPP, OSECAC, OSETYA, OSFATLYF (Luz y Fuerza), OSMATA, OSPE, OSPEDYC, OSPIA, OSPRERA, OSPTV – TV Salud, Personal de Escribanía, Poder Judicial, Prevención Salud, Qualitas, Sancor Salud, Swiss Medical, Unión Personal, Vía Sano Salud.
 
 ### Dr. Edgardo Repezza — Cardiología
+- Días: Lunes y jueves (DÍAS DE PRUEBA)
 - Turnos: Dr. App
 - Consulta particular: $37.000
 - Consulta afiliados PAMI: $27.000
@@ -116,6 +127,7 @@
 - Prácticas cardiológicas (particular): electrocardiograma $30.000 (VALOR DE PRUEBA); ecocardiograma Doppler $85.000 (VALOR DE PRUEBA); ergometría $80.000 (VALOR DE PRUEBA); Holter de 24 h $95.000 (VALOR DE PRUEBA); MAPA (presión arterial de 24 h) $90.000 (VALOR DE PRUEBA).
 
 ### Dr. Leandro Saavedra — Reumatología
+- Días: Jueves (DÍAS DE PRUEBA)
 - Turnos: Dr. App
 - Consulta particular: $37.000
 - Consulta afiliados PAMI: $27.000
@@ -131,6 +143,7 @@
 
 ### Dr. Oscar Daniel Reale — Gastroenterología de adultos
 - Edades: Adultos
+- Días: Viernes (DÍAS DE PRUEBA)
 - Turnos: Dr. App
 - Consulta particular: $60.000
 - Consulta afiliados PAMI: $55.000
@@ -138,6 +151,7 @@
 
 ### Dr. Juan Marcelo Medina — Neurología de adultos
 - Edades: Mayores de 14 años
+- Días: Martes y viernes (DÍAS DE PRUEBA)
 - Turnos: Dr. App
 - Consulta particular: $60.000 en efectivo / $72.000 por transferencia o con factura
 - Consulta afiliados PAMI: igual que particular
@@ -146,6 +160,7 @@
 
 ### Dr. Jorge Jerez — Hematología de adultos
 - Edades: Mayores de 18 años
+- Días: Un sábado por mes (DÍAS DE PRUEBA)
 - Turnos: Dr. App
 - Consulta particular: $50.000 en efectivo / $60.000 por transferencia
 - Consulta afiliados PAMI: igual que particular
@@ -153,6 +168,7 @@
 
 ### Dra. Teresita Rosenbaum — Neumonología de adultos
 - Edades: Mayores de 15 años
+- Días: Un lunes por mes (DÍAS DE PRUEBA)
 - Turnos: Dr. App
 - Consulta particular: $70.000 en efectivo / $80.000 por transferencia o con factura
 - Consulta afiliados PAMI: igual que particular
@@ -161,6 +177,7 @@
 
 ### Dr. Christian Grisafi — Psiquiatría de adultos
 - Edades: Adultos
+- Días: Martes y sábados (DÍAS DE PRUEBA)
 - Turnos: Dr. App
 - Consulta particular: $75.000
 - Consulta afiliados PAMI: $75.000
@@ -168,24 +185,28 @@
 
 ### Dr. Ricardo Camilión — Psiquiatría
 - Edades: Mayores de 18 años
+- Días: Miércoles (DÍAS DE PRUEBA)
 - Turnos: Dr. App
 - Consulta particular: $80.000
 - Consulta afiliados PAMI: $80.000
 - Obras sociales: Solo particular.
 
 ### Dr. Eduardo Morales — Cirugía general
+- Días: Lunes (DÍAS DE PRUEBA)
 - Turnos: Dr. App
 - Consulta particular: $37.000
 - Consulta afiliados PAMI: $30.000
 - Obras sociales y prepagas: ACA Salud, Accord Salud, AMEBPBA (Banco Provincia), APSOT – FSST, CASA, Centro Médico Pueyrredón, CIMA, COMEI, Ensalud – OSPIM, Galeno, Hope (William Hope), Hospital Alemán, IOMA, Jerárquicos Salud, La Segunda ART, Medicus, Medifé, Omint / CS Salud, OSDE, OSDIPP, OSDOPP, OSECAC, OSETYA, OSFATLYF (Luz y Fuerza), OSMATA, OSPE, OSPEDYC, OSPIA, OSPRERA, OSPTV – TV Salud, Personal de Escribanía, Poder Judicial, Prevención Salud, Qualitas, Sancor Salud, Swiss Medical, Unión Personal, Vía Sano Salud (con copago).
 
 ### Dr. Luis Terrarossa — Cirugía plástica
+- Días: 2.º y 4.º lunes de cada mes (DÍAS DE PRUEBA)
 - Turnos: Dr. App
 - Consulta particular: $37.000
 - Consulta afiliados PAMI: $27.000
 - Obras sociales y prepagas: ACA Salud, Accord Salud, AMEBPBA (Banco Provincia), APSOT – FSST, CASA, Centro Médico Pueyrredón, CIMA, COMEI, Ensalud – OSPIM, Galeno, Hope (William Hope), Hospital Alemán, IOMA, Jerárquicos Salud, La Segunda ART, Medicus, Medifé, Omint / CS Salud, OSDE, OSDIPP, OSDOPP, OSECAC, OSETYA, OSFATLYF (Luz y Fuerza), OSMATA, OSPE, OSPEDYC, OSPIA, OSPRERA, OSPTV – TV Salud, Personal de Escribanía, Poder Judicial, Prevención Salud, Qualitas, Sancor Salud, Swiss Medical, Unión Personal, Vía Sano Salud.
 
 ### Dr. Gonzalo Javier Díaz — Traumatología
+- Días: Martes (DÍAS DE PRUEBA)
 - Turnos: Dr. App
 - Consulta particular: $37.000
 - Consulta afiliados PAMI: $27.000
@@ -195,6 +216,7 @@
 - Infiltración: particular = consulta + $36.000; con obra social (no OSDE) = consulta por la obra social + $36.000; OSDE: cubierta.
 
 ### Dra. María José Longarela — Ginecología y Mastología
+- Días: Lunes y jueves (DÍAS DE PRUEBA)
 - Turnos: Dr. App
 - Consulta particular: $37.000
 - Consulta afiliados PAMI: $27.000
@@ -202,6 +224,7 @@
 - No prestador (arancel diferenciado): IOMA.
 
 ### Dra. Lara Battaglia — Ginecología
+- Días: Martes y viernes (DÍAS DE PRUEBA)
 - Turnos: Dr. App
 - Consulta particular: $37.000
 - Consulta afiliados PAMI: $27.000
@@ -211,6 +234,7 @@
 - Coloca implante subdérmico (Implanon); la paciente trae el implante.
 
 ### Dr. Máximo Tobías Marín — Ginecología y Obstetricia
+- Días: Miércoles (DÍAS DE PRUEBA)
 - Turnos: Dr. App
 - Consulta particular: $37.000
 - Consulta afiliados PAMI: $27.000
@@ -221,6 +245,7 @@
 
 ### Dr. Leonardo Calot — Urología
 - Edades: Adultos y niños
+- Días: Jueves (DÍAS DE PRUEBA)
 - Turnos: Dr. App
 - Consulta particular: $37.000
 - Consulta afiliados PAMI: $27.000
@@ -235,13 +260,16 @@
 - Obras sociales y prepagas: ACA Salud, Accord Salud, AMEBPBA (Banco Provincia), APSOT – FSST, CASA, Centro Médico Pueyrredón, CIMA, COMEI, Ensalud – OSPIM, Galeno, Hope (William Hope), Hospital Alemán, IOMA, Jerárquicos Salud, La Segunda ART, Medicus, Medifé, Omint / CS Salud, OSDE, OSDIPP, OSDOPP, OSECAC, OSETYA, OSFATLYF (Luz y Fuerza), OSMATA, OSPE, OSPEDYC, OSPIA, OSPRERA, OSPTV – TV Salud, Personal de Escribanía, Poder Judicial, Prevención Salud, Qualitas, Sancor Salud, Swiss Medical, Unión Personal, Vía Sano Salud.
 
 ### Dra. Manuela Castro — Oftalmología
-- Turnos: por Treelan (no por Dr. App) — [COMPLETAR: link o forma de pedir turno]
+- Días: Lunes (DÍAS DE PRUEBA)
+- Turnos: por Treelan (no por Dr. App): https://dramanuelacastro.treelan.com (LINK DE PRUEBA)
 - Consulta particular: $37.000
 - Consulta afiliados PAMI: $27.000
 - Obras sociales y prepagas: ACA Salud, Accord Salud (solo planes Platino y Dorado), AMEBPBA (Banco Provincia), APSOT – FSST, CASA, CEMIC, CIMA, COMEI, Centro Médico Pueyrredón, Ensalud – OSPIM, Galeno, Hope (William Hope), Hospital Alemán, Luis Pasteur, Medicus, Medifé, Omint / CS Salud, OSDIPP, OSECAC, OSFATLYF (Luz y Fuerza), OSMATA, OSPE, OSPEDYC, OSPIA, OSPTV – TV Salud, OSSEG, Poder Judicial, Prevención Salud, Qualitas, Sancor Salud, Swiss Medical, Unión Personal, Vía Sano Salud.
-- Algunas obras sociales tienen coseguro o pueden estar suspendidas: [COMPLETAR: detalle del cartel de Oftalmología].
+- Coseguros (VALOR DE PRUEBA): Galeno $5.000; Medifé $4.000; Sancor Salud $4.500; OSECAC $3.000. El resto de las obras sociales de su lista, sin coseguro.
+- Obras sociales suspendidas temporalmente en Oftalmología (DATO DE PRUEBA): OSSEG y Luis Pasteur. Mientras estén suspendidas, esos pacientes se atienden como particulares.
 
 ### Dra. Paula Castro — Dermatología
+- Días: Miércoles (DÍAS DE PRUEBA)
 - Turnos: Dr. App
 - Consulta particular: $37.000
 - Consulta afiliados PAMI: $27.000
@@ -250,6 +278,7 @@
 - Ver "Prácticas dermatológicas".
 
 ### Dr. Juan José Traverso — Dermatología
+- Días: Viernes (DÍAS DE PRUEBA)
 - Turnos: Dr. App
 - Consulta particular: $37.000
 - Consulta afiliados PAMI: $27.000
@@ -257,6 +286,7 @@
 - Ver "Prácticas dermatológicas".
 
 ### Dra. Mabel Barnes — Medicina estética
+- Días: Martes y jueves (DÍAS DE PRUEBA)
 - Turnos: Dr. App
 - Consulta particular: $27.000
 - Consulta afiliados PAMI: $27.000
@@ -264,32 +294,38 @@
 - Tratamientos (particular): peeling $45.000 (VALOR DE PRUEBA); mesoterapia $55.000 (VALOR DE PRUEBA); plasma rico en plaquetas $90.000 (VALOR DE PRUEBA); toxina botulínica por zona $120.000 (VALOR DE PRUEBA); ácido hialurónico por jeringa $150.000 (VALOR DE PRUEBA).
 
 ### Dr. Lucas José Chomont — Ecografía
+- Días: Lunes, miércoles y sábados (DÍAS DE PRUEBA)
 - Turnos: Dr. App
 - Consulta particular: Ecografía de tiroides, testicular o de partes blandas: $35.000 (VALOR DE PRUEBA) / Ecografía renal, mamaria, ginecológica, de caderas, transfontanelar o vesicoprostática: $45.000 (VALOR DE PRUEBA) / Ecografía abdominal, hepatobiliar o transvaginal: $55.000 (VALOR DE PRUEBA)
 - Obras sociales y prepagas: ACA Salud, Accord Salud, AMEBPBA (Banco Provincia), APSOT – FSST, CASA, Centro Médico Pueyrredón, CIMA, COMEI, Ensalud – OSPIM, Galeno, Hope (William Hope), Hospital Alemán, IOMA, Jerárquicos Salud, La Segunda ART, Medicus, Medifé, Omint / CS Salud, OSDE, OSDIPP, OSDOPP, OSECAC, OSETYA, OSFATLYF (Luz y Fuerza), OSMATA, OSPE, OSPEDYC, OSPIA, OSPRERA, OSPTV – TV Salud, Personal de Escribanía, Poder Judicial, Prevención Salud, Sancor Salud, Unión Personal, Vía Sano Salud (solo con orden autorizada para realizarse en el centro; si no, particular).
 
 ### Fga. María Cristina Caeiro — Estudios audiológicos
+- Días: Martes (DÍAS DE PRUEBA)
 - Turnos: Dr. App
 - Consulta particular: Audiometría: $35.000 (VALOR DE PRUEBA) / Logoaudiometría: $30.000 (VALOR DE PRUEBA) / Impedanciometría: $35.000 (VALOR DE PRUEBA) / Otoemisiones acústicas: $40.000 (VALOR DE PRUEBA)
 - Obras sociales: Solo particular.
 
 ### Lic. Carlos Battistello — Kinesiología
+- Días: Lunes a viernes (DÍAS DE PRUEBA)
 - Turnos: Dr. App
 - Consulta particular: Sesión de kinesiología (láser, magneto, etc.): $19.000 / MEP: $27.000
 - Obras sociales y prepagas: ACA Salud, AMEBPBA (Banco Provincia), APSOT – FSST, Asociación Eclesiástica San Pedro, CASA, Centro Médico Pueyrredón, CIMA, Colegio de Escribanos, COMEI, DAS – Congreso de la Nación, Ensalud – OSPIM, Galeno, Hope (William Hope), Hospital Alemán, Jerárquicos Salud, La Segunda ART, Medicus, Medifé, Omint / CS Salud, OSDE, OSDIPP, OSECAC, OSFATLYF (Luz y Fuerza), OSMATA, OSMEBA, OSPE, OSPEDYC, OSPIA, OSPSA, OSPTV – TV Salud, Personal de Farmacia, Poder Judicial, Prevención Salud, Sancor Salud, Swiss Medical.
 
 ### Lic. Silvana Dañiluk — RPG (Reeducación Postural Global)
+- Días: Miércoles (DÍAS DE PRUEBA)
 - Turnos: directo con el profesional (pedir el contacto en recepción)
 - Consulta particular: Sesión de RPG: $38.000 / Sesión de masajes: $25.000
 - Obras sociales: Solo particular.
 
 ### Lic. Cristóbal Tanga — Rehabilitación neurológica
+- Días: Lunes, miércoles y viernes (DÍAS DE PRUEBA)
 - Turnos: directo con el profesional (pedir el contacto en recepción)
 - Consulta particular: Evaluación: $80.000 / Sesión: entre $35.000 y $40.000
 - Obras sociales: Solo particular.
 
 ### Lic. Lucía Victoria Cortinovis — Nutrición
 - Edades: Desde 3 años
+- Días: Jueves (DÍAS DE PRUEBA)
 - Turnos: Dr. App
 - Consulta particular: Primera vez: $27.500 / Control: $22.500 / Antropometría (solo particular): $40.000
 - Obras sociales: OSDE y particular.
@@ -309,6 +345,7 @@
 
 ### Dra. Roxana Regidor — Odontología
 - Edades: Particular: mayores de 12 años. OSDE: niños y adultos
+- Días: Lunes, miércoles y viernes (DÍAS DE PRUEBA)
 - Turnos: Dr. App
 - Consulta particular: Consulta odontológica (30 min): $50.000
 - Obras sociales y prepagas: OSDE (solo consultas).
@@ -318,6 +355,7 @@
 
 ### Dra. Marcela Hvala — Odontología general y Endodoncia
 - Edades: Mayores de 15 años
+- Días: Martes y jueves (DÍAS DE PRUEBA)
 - Turnos: Dr. App
 - Consulta particular: Consulta odontológica: $50.000 / Endodoncia (tratamiento de conducto, por pieza): $250.000
 - Obras sociales y prepagas: OSDE.
@@ -327,6 +365,7 @@
 
 ### Dra. Astrid Karen Tuzio — Ortodoncia y Ortopedia
 - Edades: Niños y adultos
+- Días: Un sábado cada 15 días (DÍAS DE PRUEBA)
 - Turnos: directo con la profesional por WhatsApp (pedir el contacto en recepción)
 - Consulta particular: Primera consulta de ortodoncia (60 min): $50.000. Controles: según presupuesto
 - Obras sociales y prepagas: OSDE, Swiss Medical, Galeno, Prevención Salud.

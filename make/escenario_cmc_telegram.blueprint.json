@@ -45,7 +45,8 @@
          [
           {
            "a": "{{1.message.chat.id}}",
-           "o": "exist"
+           "o": "text:equal",
+           "b": "5383861262"
           },
           {
            "a": "{{1.message.text}}",
@@ -148,7 +149,7 @@
        },
        "mapper": {
         "chatId": "{{1.message.chat.id}}",
-        "text": "{{4.content[1].text}}",
+        "text": "{{first(map(4.content; \"text\"; \"type\"; \"text\"))}}",
         "disableWebPagePreview": true
        },
        "metadata": {
@@ -163,7 +164,7 @@
        "version": 1,
        "parameters": {},
        "mapper": {
-        "value": "{{10.value}}\nPaciente: {{1.message.text}}\nAsistente: {{4.content[1].text}}"
+        "value": "{{10.value}}\nPaciente: {{1.message.text}}\nAsistente: {{first(map(4.content; \"text\"; \"type\"; \"text\"))}}"
        },
        "metadata": {
         "designer": {
@@ -220,7 +221,8 @@
          [
           {
            "a": "{{1.message.chat.id}}",
-           "o": "exist"
+           "o": "text:equal",
+           "b": "5383861262"
           },
           {
            "a": "{{1.message.text}}",

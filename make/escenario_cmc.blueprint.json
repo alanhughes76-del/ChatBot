@@ -150,7 +150,7 @@
         "to": "{{1.messages[1].from}}",
         "type": "text",
         "text": {
-         "body": "{{4.content[1].text}}",
+         "body": "{{first(map(4.content; \"text\"; \"type\"; \"text\"))}}",
          "preview_url": false
         }
        },
@@ -166,7 +166,7 @@
        "version": 1,
        "parameters": {},
        "mapper": {
-        "value": "{{10.value}}\nPaciente: {{1.messages[1].text.body}}\nAsistente: {{4.content[1].text}}"
+        "value": "{{10.value}}\nPaciente: {{1.messages[1].text.body}}\nAsistente: {{first(map(4.content; \"text\"; \"type\"; \"text\"))}}"
        },
        "metadata": {
         "designer": {

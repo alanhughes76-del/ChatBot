@@ -14,6 +14,10 @@ from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
 
+# El modelo a veces devuelve primero un bloque de razonamiento ("thinking"):
+# se toma el primer bloque de tipo texto, esté donde esté.
+RESPUESTA = '{{first(map(4.content; "text"; "type"; "text"))}}'
+
 # Recursos de Make (team "My Team")
 DS_HISTORIAL_WHATSAPP = 143626  # "CMCardales - Historial de conversaciones"
 DS_HISTORIAL_TELEGRAM = 182591  # "CMCardales - Historial (prueba Telegram)"
@@ -21,6 +25,7 @@ DS_CONFIGURACION = 182592  # "CMCardales - Configuración del bot", registro "sy
 CONN_ANTHROPIC = 11926352  # "CMCardales - Anthropic"
 CONN_TELEGRAM = 11925599  # "CMC Prueba - Telegram" (bot de prueba, no el bot personal)
 HOOK_TELEGRAM = 2978501  # "CMC Prueba - Telegram Updates"
+TELEGRAM_CHAT_PERMITIDO = "5383861262"  # el bot de prueba solo responde al chat de Alan
 
 MODELO = "claude-sonnet-5-5"
 MAX_HISTORIAL = 3000  # caracteres de historial que se guardan por conversación
@@ -108,6 +113,8 @@ def enviar(canal, id_, cuerpo, nombre):
 def blueprint(canal):
     c = CANALES[canal]
     hay_mensaje = {"a": c["de"], "o": "exist"}
+    if canal == "telegram":
+        hay_mensaje = {"a": c["de"], "o": "text:equal", "b": TELEGRAM_CHAT_PERMITIDO}
     ruta_texto = [
         {
             "id": 3,
@@ -159,13 +166,13 @@ def blueprint(canal):
                 {"id": 8, "module": "builtin:Ignore", "version": 1, "parameters": {}, "mapper": {}},
             ],
         },
-        enviar(canal, 5, "{{4.content[1].text}}", "Responder"),
+        enviar(canal, 5, RESPUESTA, "Responder"),
         {
             "id": 11,
             "module": "util:ComposeTransformer",
             "version": 1,
             "parameters": {},
-            "mapper": {"value": f"{{{{10.value}}}}\nPaciente: {c['texto']}\nAsistente: {{{{4.content[1].text}}}}"},
+            "mapper": {"value": f"{{{{10.value}}}}\nPaciente: {c['texto']}\nAsistente: {RESPUESTA}"},
             "metadata": {"designer": {"name": "Historial actualizado"}},
         },
         {

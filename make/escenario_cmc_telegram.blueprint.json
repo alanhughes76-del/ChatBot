@@ -1,0 +1,249 @@
+{
+ "name": "CMCardales — Bot (prueba Telegram)",
+ "flow": [
+  {
+   "id": 1,
+   "module": "telegram:WatchUpdates",
+   "version": 1,
+   "parameters": {
+    "__IMTHOOK__": 2978501
+   },
+   "mapper": {},
+   "metadata": {
+    "designer": {
+     "name": "Mensaje entrante (bot de prueba)"
+    }
+   }
+  },
+  {
+   "id": 2,
+   "module": "builtin:BasicRouter",
+   "version": 1,
+   "mapper": null,
+   "routes": [
+    {
+     "flow": [
+      {
+       "id": 3,
+       "module": "datastore:GetRecord",
+       "version": 1,
+       "parameters": {
+        "datastore": 182591
+       },
+       "mapper": {
+        "key": "{{1.message.chat.id}}",
+        "returnWrapped": false
+       },
+       "metadata": {
+        "designer": {
+         "name": "Leer historial"
+        }
+       },
+       "filter": {
+        "name": "Mensaje de texto",
+        "conditions": [
+         [
+          {
+           "a": "{{1.message.chat.id}}",
+           "o": "text:equal",
+           "b": "5383861262"
+          },
+          {
+           "a": "{{1.message.text}}",
+           "o": "exist"
+          }
+         ]
+        ]
+       }
+      },
+      {
+       "id": 12,
+       "module": "datastore:GetRecord",
+       "version": 1,
+       "parameters": {
+        "datastore": 182592
+       },
+       "mapper": {
+        "key": "system_prompt",
+        "returnWrapped": false
+       },
+       "metadata": {
+        "designer": {
+         "name": "Leer prompt del bot"
+        }
+       }
+      },
+      {
+       "id": 10,
+       "module": "util:ComposeTransformer",
+       "version": 1,
+       "parameters": {},
+       "mapper": {
+        "value": "{{if(3.actualizado < addHours(now; -24); emptystring; 3.historial)}}"
+       },
+       "metadata": {
+        "designer": {
+         "name": "Historial vigente"
+        }
+       }
+      },
+      {
+       "id": 4,
+       "module": "anthropic-claude:createAMessage",
+       "version": 1,
+       "parameters": {
+        "__IMTCONN__": 11926352
+       },
+       "mapper": {
+        "model": "claude-sonnet-5-5",
+        "max_tokens": 600,
+        "temperature": 0.2,
+        "system": "{{12.valor}}",
+        "messages": [
+         {
+          "role": "user",
+          "inputType": "single",
+          "content": "<historial>\n{{10.value}}\n</historial>\n\n<mensaje_nuevo>\n{{1.message.text}}\n</mensaje_nuevo>"
+         }
+        ]
+       },
+       "metadata": {
+        "designer": {
+         "name": "Claude responde"
+        }
+       },
+       "onerror": [
+        {
+         "id": 7,
+         "module": "telegram:SendReplyMessage",
+         "version": 1,
+         "parameters": {
+          "__IMTCONN__": 11925599
+         },
+         "mapper": {
+          "chatId": "{{1.message.chat.id}}",
+          "text": "¡Gracias por escribirnos! En este momento no puedo responderte. Por favor, llamá a recepción al (0230) 4462344 (lunes a viernes de 8 a 20 h y sábados de 8 a 13 h).\n\nSi se trata de una urgencia, comunicate con el 107 (SAME).",
+          "disableWebPagePreview": true
+         },
+         "metadata": {
+          "designer": {
+           "name": "Aviso si Claude falla"
+          }
+         }
+        },
+        {
+         "id": 8,
+         "module": "builtin:Ignore",
+         "version": 1,
+         "parameters": {},
+         "mapper": {}
+        }
+       ]
+      },
+      {
+       "id": 5,
+       "module": "telegram:SendReplyMessage",
+       "version": 1,
+       "parameters": {
+        "__IMTCONN__": 11925599
+       },
+       "mapper": {
+        "chatId": "{{1.message.chat.id}}",
+        "text": "{{first(map(4.content; \"text\"; \"type\"; \"text\"))}}",
+        "disableWebPagePreview": true
+       },
+       "metadata": {
+        "designer": {
+         "name": "Responder"
+        }
+       }
+      },
+      {
+       "id": 11,
+       "module": "util:ComposeTransformer",
+       "version": 1,
+       "parameters": {},
+       "mapper": {
+        "value": "{{10.value}}\nPaciente: {{1.message.text}}\nAsistente: {{first(map(4.content; \"text\"; \"type\"; \"text\"))}}"
+       },
+       "metadata": {
+        "designer": {
+         "name": "Historial actualizado"
+        }
+       }
+      },
+      {
+       "id": 6,
+       "module": "datastore:AddRecord",
+       "version": 1,
+       "parameters": {
+        "datastore": 182591
+       },
+       "mapper": {
+        "key": "{{1.message.chat.id}}",
+        "overwrite": true,
+        "data": {
+         "historial": "{{substring(11.value; max(0; length(11.value) - 3000); length(11.value))}}",
+         "actualizado": "{{now}}",
+         "nombre": "{{1.message.from.first_name}}"
+        }
+       },
+       "metadata": {
+        "designer": {
+         "name": "Guardar historial"
+        }
+       }
+      }
+     ]
+    },
+    {
+     "flow": [
+      {
+       "id": 9,
+       "module": "telegram:SendReplyMessage",
+       "version": 1,
+       "parameters": {
+        "__IMTCONN__": 11925599
+       },
+       "mapper": {
+        "chatId": "{{1.message.chat.id}}",
+        "text": "¡Gracias por escribirnos! Por ahora solo puedo leer mensajes de texto. ¿Me lo escribís? También podés llamar a recepción al (0230) 4462344.\n\nSi se trata de una urgencia, comunicate con el 107 (SAME).",
+        "disableWebPagePreview": true
+       },
+       "metadata": {
+        "designer": {
+         "name": "Aviso: solo texto"
+        }
+       },
+       "filter": {
+        "name": "Audio, imagen u otro",
+        "conditions": [
+         [
+          {
+           "a": "{{1.message.chat.id}}",
+           "o": "text:equal",
+           "b": "5383861262"
+          },
+          {
+           "a": "{{1.message.text}}",
+           "o": "notexist"
+          }
+         ]
+        ]
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "metadata": {
+  "version": 1,
+  "scenario": {
+   "roundtrips": 1,
+   "maxErrors": 3,
+   "autoCommit": true,
+   "sequential": true
+  }
+ }
+}

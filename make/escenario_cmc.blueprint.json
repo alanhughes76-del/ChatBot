@@ -1,0 +1,253 @@
+{
+ "name": "CMCardales — Bot de WhatsApp",
+ "flow": [
+  {
+   "id": 1,
+   "module": "whatsapp-business-cloud:watchEvents2",
+   "version": 1,
+   "parameters": {},
+   "mapper": {},
+   "metadata": {
+    "designer": {
+     "name": "Mensaje entrante (número de CMCardales)"
+    }
+   }
+  },
+  {
+   "id": 2,
+   "module": "builtin:BasicRouter",
+   "version": 1,
+   "mapper": null,
+   "routes": [
+    {
+     "flow": [
+      {
+       "id": 3,
+       "module": "datastore:GetRecord",
+       "version": 1,
+       "parameters": {
+        "datastore": 143626
+       },
+       "mapper": {
+        "key": "{{1.messages[1].from}}",
+        "returnWrapped": false
+       },
+       "metadata": {
+        "designer": {
+         "name": "Leer historial"
+        }
+       },
+       "filter": {
+        "name": "Mensaje de texto",
+        "conditions": [
+         [
+          {
+           "a": "{{1.messages[1].from}}",
+           "o": "exist"
+          },
+          {
+           "a": "{{1.messages[1].type}}",
+           "o": "text:equal",
+           "b": "text"
+          }
+         ]
+        ]
+       }
+      },
+      {
+       "id": 12,
+       "module": "datastore:GetRecord",
+       "version": 1,
+       "parameters": {
+        "datastore": 182592
+       },
+       "mapper": {
+        "key": "system_prompt",
+        "returnWrapped": false
+       },
+       "metadata": {
+        "designer": {
+         "name": "Leer prompt del bot"
+        }
+       }
+      },
+      {
+       "id": 10,
+       "module": "util:ComposeTransformer",
+       "version": 1,
+       "parameters": {},
+       "mapper": {
+        "value": "{{if(3.actualizado < addHours(now; -24); emptystring; 3.historial)}}"
+       },
+       "metadata": {
+        "designer": {
+         "name": "Historial vigente"
+        }
+       }
+      },
+      {
+       "id": 4,
+       "module": "anthropic-claude:createAMessage",
+       "version": 1,
+       "parameters": {
+        "__IMTCONN__": 11926352
+       },
+       "mapper": {
+        "model": "claude-sonnet-5-5",
+        "max_tokens": 600,
+        "temperature": 0.2,
+        "system": "{{12.valor}}",
+        "messages": [
+         {
+          "role": "user",
+          "inputType": "single",
+          "content": "<historial>\n{{10.value}}\n</historial>\n\n<mensaje_nuevo>\n{{1.messages[1].text.body}}\n</mensaje_nuevo>"
+         }
+        ]
+       },
+       "metadata": {
+        "designer": {
+         "name": "Claude responde"
+        }
+       },
+       "onerror": [
+        {
+         "id": 7,
+         "module": "whatsapp-business-cloud:sendMessage",
+         "version": 1,
+         "parameters": {},
+         "mapper": {
+          "fromId": "{{1.metadata.phone_number_id}}",
+          "to": "{{1.messages[1].from}}",
+          "type": "text",
+          "text": {
+           "body": "¡Gracias por escribirnos! En este momento no puedo responderte. Por favor, llamá a recepción al (0230) 4462344 (lunes a viernes de 8 a 20 h y sábados de 8 a 13 h).\n\nSi se trata de una urgencia, comunicate con el 107 (SAME).",
+           "preview_url": false
+          }
+         },
+         "metadata": {
+          "designer": {
+           "name": "Aviso si Claude falla"
+          }
+         }
+        },
+        {
+         "id": 8,
+         "module": "builtin:Ignore",
+         "version": 1,
+         "parameters": {},
+         "mapper": {}
+        }
+       ]
+      },
+      {
+       "id": 5,
+       "module": "whatsapp-business-cloud:sendMessage",
+       "version": 1,
+       "parameters": {},
+       "mapper": {
+        "fromId": "{{1.metadata.phone_number_id}}",
+        "to": "{{1.messages[1].from}}",
+        "type": "text",
+        "text": {
+         "body": "{{first(map(4.content; \"text\"; \"type\"; \"text\"))}}",
+         "preview_url": false
+        }
+       },
+       "metadata": {
+        "designer": {
+         "name": "Responder"
+        }
+       }
+      },
+      {
+       "id": 11,
+       "module": "util:ComposeTransformer",
+       "version": 1,
+       "parameters": {},
+       "mapper": {
+        "value": "{{10.value}}\nPaciente: {{1.messages[1].text.body}}\nAsistente: {{first(map(4.content; \"text\"; \"type\"; \"text\"))}}"
+       },
+       "metadata": {
+        "designer": {
+         "name": "Historial actualizado"
+        }
+       }
+      },
+      {
+       "id": 6,
+       "module": "datastore:AddRecord",
+       "version": 1,
+       "parameters": {
+        "datastore": 143626
+       },
+       "mapper": {
+        "key": "{{1.messages[1].from}}",
+        "overwrite": true,
+        "data": {
+         "historial": "{{substring(11.value; max(0; length(11.value) - 3000); length(11.value))}}",
+         "actualizado": "{{now}}",
+         "nombre": "{{1.contacts[1].profile.name}}"
+        }
+       },
+       "metadata": {
+        "designer": {
+         "name": "Guardar historial"
+        }
+       }
+      }
+     ]
+    },
+    {
+     "flow": [
+      {
+       "id": 9,
+       "module": "whatsapp-business-cloud:sendMessage",
+       "version": 1,
+       "parameters": {},
+       "mapper": {
+        "fromId": "{{1.metadata.phone_number_id}}",
+        "to": "{{1.messages[1].from}}",
+        "type": "text",
+        "text": {
+         "body": "¡Gracias por escribirnos! Por ahora solo puedo leer mensajes de texto. ¿Me lo escribís? También podés llamar a recepción al (0230) 4462344.\n\nSi se trata de una urgencia, comunicate con el 107 (SAME).",
+         "preview_url": false
+        }
+       },
+       "metadata": {
+        "designer": {
+         "name": "Aviso: solo texto"
+        }
+       },
+       "filter": {
+        "name": "Audio, imagen u otro",
+        "conditions": [
+         [
+          {
+           "a": "{{1.messages[1].from}}",
+           "o": "exist"
+          },
+          {
+           "a": "{{1.messages[1].type}}",
+           "o": "text:notequal",
+           "b": "text"
+          }
+         ]
+        ]
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "metadata": {
+  "version": 1,
+  "scenario": {
+   "roundtrips": 1,
+   "maxErrors": 3,
+   "autoCommit": true,
+   "sequential": true
+  }
+ }
+}

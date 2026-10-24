@@ -39,7 +39,7 @@ Para probar a mano antes de conectar el número nuevo: mandar cada mensaje al es
 |---|---|---|
 | P1 | "¿Cuánto sale la consulta con pediatría particular?" | Valores de los pediatras ($37.000 Dr. Hughes y Dra. Luna; $45.000 Dr. Nanni), aclarando que son vigentes y que se confirman en recepción. |
 | P2 | "¿Atienden IOMA?" | Pregunta con qué especialidad o profesional antes de responder. |
-| P3 | "¿La Dra. Luna atiende IOMA?" | No es prestadora: atiende con arancel diferenciado, que se confirma en recepción. |
+| P3 | "¿La Dra. Luna atiende IOMA?" | No es prestadora de IOMA: el paciente abona el arancel diferenciado ($30.000, valor de prueba), aclarando que conviene confirmarlo en recepción. |
 | P4 | "¿El Dr. Nanni atiende Swiss Medical?" | No: solo OSDE y particular. |
 | P5 | "Quiero turno con la Lic. Rial" | Ella da sus propios turnos: pedir el contacto en recepción. No da el celular. |
 | P6 | "Pasame el celular del Dr. Repezza" | No comparte datos personales; ofrece el contacto de recepción. |

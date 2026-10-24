@@ -14,7 +14,7 @@ Asistente virtual de WhatsApp para CMCardales. Arquitectura: **WhatsApp Cloud AP
 | Archivo | Para qué |
 |---|---|
 | [`prompts/system_prompt.md`](prompts/system_prompt.md) | El system prompt que se pega en el módulo Anthropic Claude de Make.com. |
-| [`conocimiento/base_cmc.md`](conocimiento/base_cmc.md) | **Preliminar** de la base de conocimiento: 47 profesionales con especialidad, edades, días, cómo se piden los turnos, obras sociales y aranceles. Se pega dentro del prompt. |
+| [`conocimiento/base_cmc.md`](conocimiento/base_cmc.md) | Base de conocimiento: 46 profesionales con especialidad, edades, días, cómo se piden los turnos, obras sociales y aranceles. Se pega dentro del prompt. |
 | [`prompts/casos_de_prueba.md`](prompts/casos_de_prueba.md) | Casos para validar el bot antes de salir a producción (los clínicos son excluyentes). |
 
 ## Cómo usarlo en Make.com
@@ -47,14 +47,20 @@ Se armó con "Resumen médicos y O.S. que atienden" (04/2026), "Arancel particul
 
 1. **Texto del mensaje fijo clínico.** La propuesta incluye la indicación de llamar a emergencias o ir a la guardia, y el link para pedir turno. Revisarlo desde el criterio médico antes de activar.
 2. **Mensajes mixtos** (clínico + administrativo): el prompt manda primero el mensaje fijo completo y después responde solo la parte administrativa, sin mencionar los síntomas. Si prefieren que ante cualquier componente clínico salga *únicamente* el mensaje fijo, es un cambio de una línea.
-3. **Base de conocimiento (preliminar):**
-   - **Vigencia de los aranceles:** son de mayo de 2026. Actualizarlos antes de activar el bot.
-   - **Columna "PAMI"** de la planilla de consultas: se interpretó como el valor que abona un afiliado PAMI. Confirmar.
-   - **"Arancel diferenciado"** (no prestador), **"arancel hospitalario (el general)"** y **"arancel compensatorio"**: ¿el bot debe informar montos o solo derivar a recepción? Hoy deriva.
-   - **Profesionales que dan sus propios turnos** (Dañiluk, Luraschi, Rossiter, Rial, Tanga, Crugnale, Tuzio, Hary): ¿el bot puede compartir su celular? Hoy no lo comparte y deriva a recepción.
-   - **Dra. Manuela Castro:** el documento dice que sus turnos van por "Treelan", no por Dr. App.
-   - **Diferencias entre documentos:** consulta odontológica $40.000 (Word) vs. $50.000 (planilla 03/2026; se usó $50.000); Dra. Rossi figura como Clínica médica en 2026 y como Diabetología en 2024; Dr. Verón con "Austral Salud????"; la Lic. Cortinovis no tiene lista de obras sociales, pero la planilla sugiere OSDE.
-   - **Profesionales en la planilla de aranceles que no están en el Word** (Dra. Dimilito, Oftalmología infantil): no se incluyeron. ¿Siguen atendiendo?
-   - **Faltan aranceles de:** ecografías (Dr. Chomont), estudios audiológicos, electroencefalogramas infantiles, medicina estética y prácticas cardiológicas.
-   - **Urgencias odontológicas:** el Word indica dar el Instagram de la Dra. Hvala a pacientes con dolor. Para el bot es una consulta clínica (mensaje fijo), así que no se incluyó.
-   - **Días de atención:** solo figuran para algunos profesionales.
+3. **Base de conocimiento:** quedan pendientes
+   - El link o la forma de pedir turno por Treelan (Dra. Manuela Castro) y el detalle de coseguros y obras sociales suspendidas del cartel de Oftalmología.
+   - Los días de atención: solo figuran para algunos profesionales.
+
+## Valores de prueba (reemplazar antes de salir a producción)
+
+En `conocimiento/base_cmc.md` figuran marcados como **(VALOR DE PRUEBA)**. Son inventados, solo para probar el bot:
+- Ecografías (Dr. Chomont), estudios audiológicos (Fga. Caeiro), electroencefalogramas infantiles (Téc. Crugnale), prácticas cardiológicas (Dr. Repezza) y tratamientos de medicina estética (Dra. Barnes).
+- Arancel diferenciado para no prestadores ($30.000) y arancel compensatorio del PAP con obra social ($10.000).
+
+## Decisiones tomadas
+
+- Aranceles: se usan los de mayo de 2026. La columna "PAMI" es el valor que abona un afiliado PAMI.
+- El bot informa el arancel diferenciado y el compensatorio.
+- Para los profesionales que dan sus propios turnos, el bot no comparte su celular: deriva a recepción.
+- Consulta odontológica: $50.000. La Lic. Cortinovis atiende OSDE. El Dr. Verón y la Dra. Dimilito ya no atienden en el centro.
+- Urgencias odontológicas: son consultas clínicas, así que el bot responde con el mensaje fijo (no se da el Instagram de la Dra. Hvala).

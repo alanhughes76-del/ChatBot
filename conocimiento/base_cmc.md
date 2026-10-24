@@ -1,13 +1,13 @@
-# Base de conocimiento de CMCardales — PRELIMINAR
+# Base de conocimiento de CMCardales
 
 > Generada a partir de documentos internos: "Resumen médicos y O.S. que atienden" (04/2026), "Arancel particular consultas médicas" (05/2026) y "Arancel particular de prestaciones diferentes" (05/2026).
 > **No incluye datos internos** (CUIT, celulares, emails, alias bancarios, porcentajes de alquiler, por dónde se factura ni credenciales).
-> Los valores son los vigentes a mayo de 2026. Antes de activar el bot hay que validarlos y actualizarlos.
+> Los valores son los vigentes a mayo de 2026. Los marcados como (VALOR DE PRUEBA) son provisorios y deben reemplazarse por los reales antes de salir a producción.
 
 ## Reglas para usar esta información
 - Los aranceles pueden cambiar: cada vez que informes un valor, aclará que es el vigente y que conviene confirmarlo en recepción.
 - "Consulta afiliados PAMI" es el valor de la consulta para pacientes con PAMI.
-- "No prestador (arancel diferenciado)": el profesional no es prestador de esa obra social y el paciente abona un arancel diferenciado; el monto se confirma en recepción.
+- "No prestador (arancel diferenciado)": el profesional no es prestador de esa obra social y el paciente abona un arancel diferenciado de $30.000 (VALOR DE PRUEBA) por consulta.
 - Si una obra social no figura en la lista de un profesional, no digas que la atiende: indicá que no tenés esa información y ofrecé el contacto de recepción.
 - Turnos "directo con el profesional": el profesional maneja su propia agenda; indicá que pidan el contacto en recepción.
 
@@ -55,15 +55,6 @@
 - Consulta afiliados PAMI: igual que particular
 - Obras sociales: Solo particular.
 
-### Dr. David Alejandro Verón — Hematología pediátrica
-- Edades: De 0 a 18 años
-- Turnos: Dr. App
-- Consulta particular: $37.000
-- Consulta afiliados PAMI: $37.000
-- Obras sociales y prepagas: ACA Salud, APSOT – FSST, Austral Salud (A CONFIRMAR), CIMA, Centro Médico Pueyrredón, Ensalud – OSPIM, Hope (William Hope), Hospital Alemán, Medicus, Medifé, Omint / CS Salud, OSDIPP, OSECAC, OSMATA, OSPE, OSPEDYC, OSPIA, OSPTV – TV Salud, Swiss Medical, Vía Sano Salud.
-- No prestador (arancel diferenciado): Accord Salud, Galeno, IOMA, Unión Personal.
-- Frotis (particular): $13.500.
-
 ### Ps. Rodrigo Luraschi — Estimulación temprana
 - Turnos: directo con el profesional (pedir el contacto en recepción)
 - Consulta particular: $25.000 por sesión
@@ -73,7 +64,7 @@
 - Edades: Niños
 - Días: Martes y viernes
 - Turnos: directo con el profesional (pedir el contacto en recepción)
-- Consulta particular: [COMPLETAR: arancel EEG infantil]
+- Consulta particular: Electroencefalograma en vigilia: $55.000 (VALOR DE PRUEBA) / Electroencefalograma con sueño: $70.000 (VALOR DE PRUEBA)
 - Obras sociales: Solo particular.
 
 ### Téc. Ángeles Hary — Puericultura y crianza
@@ -122,7 +113,7 @@
 - Consulta particular: $37.000
 - Consulta afiliados PAMI: $27.000
 - Obras sociales y prepagas: ACA Salud, Accord Salud, AMEBPBA (Banco Provincia), APSOT – FSST, CASA, Centro Médico Pueyrredón, CIMA, COMEI, Ensalud – OSPIM, Galeno, Hope (William Hope), Hospital Alemán, IOMA, Jerárquicos Salud, La Segunda ART, Medicus, Medifé, Omint / CS Salud, OSDE, OSDIPP, OSDOPP, OSECAC, OSETYA, OSFATLYF (Luz y Fuerza), OSMATA, OSPE, OSPEDYC, OSPIA, OSPRERA, OSPTV – TV Salud, Personal de Escribanía, Poder Judicial, Prevención Salud, Qualitas, Sancor Salud, Swiss Medical, Unión Personal, Vía Sano Salud.
-- Realiza prácticas cardiológicas: [COMPLETAR: listado y aranceles].
+- Prácticas cardiológicas (particular): electrocardiograma $30.000 (VALOR DE PRUEBA); ecocardiograma Doppler $85.000 (VALOR DE PRUEBA); ergometría $80.000 (VALOR DE PRUEBA); Holter de 24 h $95.000 (VALOR DE PRUEBA); MAPA (presión arterial de 24 h) $90.000 (VALOR DE PRUEBA).
 
 ### Dr. Leandro Saavedra — Reumatología
 - Turnos: Dr. App
@@ -244,7 +235,7 @@
 - Obras sociales y prepagas: ACA Salud, Accord Salud, AMEBPBA (Banco Provincia), APSOT – FSST, CASA, Centro Médico Pueyrredón, CIMA, COMEI, Ensalud – OSPIM, Galeno, Hope (William Hope), Hospital Alemán, IOMA, Jerárquicos Salud, La Segunda ART, Medicus, Medifé, Omint / CS Salud, OSDE, OSDIPP, OSDOPP, OSECAC, OSETYA, OSFATLYF (Luz y Fuerza), OSMATA, OSPE, OSPEDYC, OSPIA, OSPRERA, OSPTV – TV Salud, Personal de Escribanía, Poder Judicial, Prevención Salud, Qualitas, Sancor Salud, Swiss Medical, Unión Personal, Vía Sano Salud.
 
 ### Dra. Manuela Castro — Oftalmología
-- Turnos: [CONFIRMAR: figura "Treelan" en lugar de Dr. App]
+- Turnos: por Treelan (no por Dr. App) — [COMPLETAR: link o forma de pedir turno]
 - Consulta particular: $37.000
 - Consulta afiliados PAMI: $27.000
 - Obras sociales y prepagas: ACA Salud, Accord Salud (solo planes Platino y Dorado), AMEBPBA (Banco Provincia), APSOT – FSST, CASA, CEMIC, CIMA, COMEI, Centro Médico Pueyrredón, Ensalud – OSPIM, Galeno, Hope (William Hope), Hospital Alemán, Luis Pasteur, Medicus, Medifé, Omint / CS Salud, OSDIPP, OSECAC, OSFATLYF (Luz y Fuerza), OSMATA, OSPE, OSPEDYC, OSPIA, OSPTV – TV Salud, OSSEG, Poder Judicial, Prevención Salud, Qualitas, Sancor Salud, Swiss Medical, Unión Personal, Vía Sano Salud.
@@ -270,16 +261,16 @@
 - Consulta particular: $27.000
 - Consulta afiliados PAMI: $27.000
 - Obras sociales: Solo particular.
-- Tratamientos: [COMPLETAR: aranceles del cartel de Medicina Estética].
+- Tratamientos (particular): peeling $45.000 (VALOR DE PRUEBA); mesoterapia $55.000 (VALOR DE PRUEBA); plasma rico en plaquetas $90.000 (VALOR DE PRUEBA); toxina botulínica por zona $120.000 (VALOR DE PRUEBA); ácido hialurónico por jeringa $150.000 (VALOR DE PRUEBA).
 
 ### Dr. Lucas José Chomont — Ecografía
 - Turnos: Dr. App
-- Consulta particular: [COMPLETAR: aranceles particulares de ecografía]
+- Consulta particular: Ecografía de tiroides, testicular o de partes blandas: $35.000 (VALOR DE PRUEBA) / Ecografía renal, mamaria, ginecológica, de caderas, transfontanelar o vesicoprostática: $45.000 (VALOR DE PRUEBA) / Ecografía abdominal, hepatobiliar o transvaginal: $55.000 (VALOR DE PRUEBA)
 - Obras sociales y prepagas: ACA Salud, Accord Salud, AMEBPBA (Banco Provincia), APSOT – FSST, CASA, Centro Médico Pueyrredón, CIMA, COMEI, Ensalud – OSPIM, Galeno, Hope (William Hope), Hospital Alemán, IOMA, Jerárquicos Salud, La Segunda ART, Medicus, Medifé, Omint / CS Salud, OSDE, OSDIPP, OSDOPP, OSECAC, OSETYA, OSFATLYF (Luz y Fuerza), OSMATA, OSPE, OSPEDYC, OSPIA, OSPRERA, OSPTV – TV Salud, Personal de Escribanía, Poder Judicial, Prevención Salud, Sancor Salud, Unión Personal, Vía Sano Salud (solo con orden autorizada para realizarse en el centro; si no, particular).
 
 ### Fga. María Cristina Caeiro — Estudios audiológicos
 - Turnos: Dr. App
-- Consulta particular: [COMPLETAR: aranceles de estudios audiológicos]
+- Consulta particular: Audiometría: $35.000 (VALOR DE PRUEBA) / Logoaudiometría: $30.000 (VALOR DE PRUEBA) / Impedanciometría: $35.000 (VALOR DE PRUEBA) / Otoemisiones acústicas: $40.000 (VALOR DE PRUEBA)
 - Obras sociales: Solo particular.
 
 ### Lic. Carlos Battistello — Kinesiología
@@ -301,7 +292,7 @@
 - Edades: Desde 3 años
 - Turnos: Dr. App
 - Consulta particular: Primera vez: $27.500 / Control: $22.500 / Antropometría (solo particular): $40.000
-- Obras sociales: [CONFIRMAR: particular; la planilla sugiere que también atiende OSDE]
+- Obras sociales: OSDE y particular.
 
 ### Lic. Florencia Rossiter — Psicología y Psicopedagogía
 - Días: Lunes, miércoles y viernes
@@ -355,7 +346,7 @@
 - Topicaciones (de 3 a 5): primera topicación particular $106.000; con obra social (no OSDE) consulta por la obra social + $85.000. Las siguientes se cobran como consulta (particular u obra social). Con OSDE: cubiertas.
 - Drenaje de glándula de Bartolino: particular y obras sociales (no OSDE) $106.000. Con OSDE: cubierto.
 - Extracción de pólipos: consulta (particular u obra social) + $64.000. Con OSDE: cubierta.
-- Toma de PAP + cepillado endocervical: consulta particular + $15.000; con obra social (no OSDE) $15.000 + arancel compensatorio [COMPLETAR: monto]. Con OSDE: cubierto.
+- Toma de PAP + cepillado endocervical: consulta particular + $15.000; con obra social (no OSDE) $15.000 + arancel compensatorio de $10.000 (VALOR DE PRUEBA). Con OSDE: cubierto.
 
 ## Monitoreo fetal (Dr. Máximo Tobías Marín)
 - Monitoreo + consulta: particular, IOMA o Galeno $60.000; otras obras sociales y OSDE: consulta por la obra social + $30.000.

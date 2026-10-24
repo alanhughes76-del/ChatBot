@@ -54,6 +54,22 @@
        }
       },
       {
+       "id": 12,
+       "module": "datastore:GetRecord",
+       "version": 1,
+       "parameters": {
+        "datastore": 182592
+       },
+       "mapper": {
+        "key": "system_prompt"
+       },
+       "metadata": {
+        "designer": {
+         "name": "Leer prompt del bot"
+        }
+       }
+      },
+      {
        "id": 10,
        "module": "util:ComposeTransformer",
        "version": 1,
@@ -71,12 +87,14 @@
        "id": 4,
        "module": "anthropic-claude:createAMessage",
        "version": 1,
-       "parameters": {},
+       "parameters": {
+        "__IMTCONN__": 11926352
+       },
        "mapper": {
         "model": "claude-sonnet-5-5",
         "max_tokens": 600,
         "temperature": 0.2,
-        "system": "El asistente de CMCardales está en configuración. Ante cualquier mensaje, respondé únicamente, textual: \"¡Gracias por escribirnos! Nuestro asistente virtual está en configuración. Por favor, llamá a recepción al (0230) 4462344. Si se trata de una urgencia, comunicate con el 107 (SAME).\"",
+        "system": "{{12.valor}}",
         "messages": [
          {
           "role": "user",
@@ -136,7 +154,7 @@
        },
        "metadata": {
         "designer": {
-         "name": "Responder por WhatsApp"
+         "name": "Responder"
         }
        }
       },

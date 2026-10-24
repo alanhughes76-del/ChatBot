@@ -15,35 +15,44 @@ Asistente virtual de WhatsApp para CMCardales. Arquitectura: **WhatsApp Cloud AP
 |---|---|
 | [`prompts/system_prompt.md`](prompts/system_prompt.md) | Reglas del bot: alcance, regla de seguridad clínica, tono y datos generales del centro. |
 | [`conocimiento/base_cmc.md`](conocimiento/base_cmc.md) | Base de conocimiento: 46 profesionales con especialidad, edades, días, cómo se piden los turnos, obras sociales y aranceles. |
-| [`make/system_prompt_completo.txt`](make/system_prompt_completo.txt) | El prompt con la base ya integrada: **es lo que se pega en Make**. |
-| [`make/escenario_cmc.blueprint.json`](make/escenario_cmc.blueprint.json) | El escenario de Make (también importable con *Import Blueprint*). |
-| [`make/build_blueprint.py`](make/build_blueprint.py) | Regenera los dos archivos anteriores: `python3 make/build_blueprint.py`. Correrlo cada vez que cambien el prompt o la base. |
+| [`make/system_prompt_completo.txt`](make/system_prompt_completo.txt) | El prompt con la base ya integrada. Es el contenido del registro `system_prompt` en Make. |
+| [`make/escenario_cmc.blueprint.json`](make/escenario_cmc.blueprint.json) | Escenario de WhatsApp (producción). |
+| [`make/escenario_cmc_telegram.blueprint.json`](make/escenario_cmc_telegram.blueprint.json) | Escenario de prueba por Telegram. |
+| [`make/build_blueprint.py`](make/build_blueprint.py) | Regenera los tres archivos anteriores: `python3 make/build_blueprint.py`. |
 | [`prompts/casos_de_prueba.md`](prompts/casos_de_prueba.md) | Casos para validar el bot antes de salir a producción (los clínicos son excluyentes). |
 
-## Escenario de Make: "CMCardales — Bot de WhatsApp"
+## Make: escenarios y recursos
 
-Ya está creado en el team "My Team" de Make, **inactivo** (id 6763454). Usa el data store "CMCardales - Historial de conversaciones", que ahora tiene estructura (historial, último mensaje y nombre de perfil).
+Todo está en el team "My Team" de Make.
 
-**Cómo funciona**
-1. **Mensaje entrante:** llega un mensaje al número de WhatsApp de CMCardales.
+| Recurso | Para qué |
+|---|---|
+| Escenario **"CMCardales — Bot (prueba Telegram)"** (id 6764120) | **Activo.** Mismo bot, por un bot de Telegram de prueba (no el bot personal de Alan, que ya tiene su propio webhook). |
+| Escenario **"CMCardales — Bot de WhatsApp"** (id 6763454) | **Inactivo.** Ya tiene la conexión de Anthropic; falta la de WhatsApp del número nuevo. |
+| Data store **"CMCardales - Configuración del bot"** | Registro `system_prompt`: el prompt que leen los dos escenarios. Para cambiar el bot, se actualiza este registro; no hace falta tocar los escenarios. |
+| Data store **"CMCardales - Historial de conversaciones"** | Historial de WhatsApp (por número). |
+| Data store **"CMCardales - Historial (prueba Telegram)"** | Historial de las pruebas (por chat). |
+| Conexiones **"CMCardales - Anthropic"** y **"CMC Prueba - Telegram"** | Creadas por pedido de credenciales: las claves las cargó Alan directamente en Make. |
+
+**Cómo funciona cada mensaje**
+1. **Mensaje entrante** por WhatsApp o Telegram.
 2. **Router:**
-   - **Mensaje de texto:**
+   - **Texto:**
      - Lee el historial de esa persona. Si pasaron más de 24 h desde su último mensaje, arranca de cero.
-     - Claude responde con el prompt completo.
-     - La respuesta se envía por WhatsApp.
-     - Se guarda el historial actualizado (los últimos 3.000 caracteres).
-   - **Audio, imagen u otro:** responde que por ahora solo lee texto, con el teléfono de recepción y el 107.
-3. **Si Claude falla:** se envía un aviso con el teléfono de recepción y el 107, y la ejecución termina sin error.
+     - Lee el prompt desde el data store de configuración.
+     - Claude Sonnet 5.5 responde.
+     - Se envía la respuesta.
+     - Se guarda el historial (los últimos 3.000 caracteres).
+   - **Audio, imagen u otro:** aviso de que solo lee texto, con el teléfono de recepción y el 107.
+3. **Si Claude falla:** aviso con el teléfono de recepción y el 107. La ejecución termina sin error.
 
-**Lo que falta para activarlo (en Make, a mano)**
-1. **Conexión de WhatsApp de CMCardales:** crearla con el número nuevo (no la de tu consultorio). En el módulo "Mensaje entrante", crear el webhook con esa conexión. En los tres módulos de envío ("Responder por WhatsApp", "Aviso si Claude falla" y "Aviso: solo texto"), elegir la conexión. El *Sender ID* ya está mapeado al número que recibe el mensaje.
-2. **Conexión de Anthropic:** crearla con la API key de la cuenta que va a pagar el uso, y elegirla en "Claude responde". Verificar que el modelo figure como `claude-sonnet-5-5` en el desplegable.
-3. **Pegar el prompt:** en "Claude responde" → *System Prompt*, reemplazar el texto provisorio por el contenido completo de `make/system_prompt_completo.txt`. Hasta que se pegue, el bot solo contesta que está en configuración, con el teléfono de recepción y el 107.
-4. **Probar** con *Run once* desde un celular de prueba todos los casos de `prompts/casos_de_prueba.md`, y recién después activar el escenario.
+**Para activar WhatsApp**
+1. Crear la conexión de WhatsApp Business Cloud del número nuevo de CMCardales. Elegirla en el módulo "Mensaje entrante" (crear ahí el webhook) y en los tres módulos de envío.
+2. Correr los casos de `prompts/casos_de_prueba.md` (primero en Telegram) y recién después activar.
 
 **Notas**
-- **Costo:** cada mensaje envía el prompt completo (unos 35.000 caracteres). Si el volumen de mensajes es alto, conviene pasar a una llamada con caché de prompt, que abarata mucho el costo.
-- **Privacidad:** el historial guarda texto de las conversaciones en Make, asociado al número de WhatsApp. No se envía el número del paciente a Anthropic.
+- **Costo:** cada mensaje envía el prompt completo (unos 35.000 caracteres). Con volumen alto conviene pasar a una llamada con caché de prompt.
+- **Privacidad:** el historial guarda texto de las conversaciones en Make, asociado al número o al chat. No se envía el número del paciente a Anthropic.
 
 ## Fuentes de la base de conocimiento
 
